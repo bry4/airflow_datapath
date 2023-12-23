@@ -44,7 +44,7 @@ default_args = {
 }
 
 dag = DAG(
-    '03_workflow_v1',
+    '04_workflow_v1',
     default_args=default_args,
     description='A DAG that get data from a public API and send to Database',
     schedule_interval=None,
@@ -64,7 +64,7 @@ get_data = PythonOperator(
 )
     
 save_data = PythonOperator(
-    task_id='save_data_to_mysql',
+    task_id='save_data_to_postgres',
     python_callable=save_to_postgres,
     provide_context=True,
 )

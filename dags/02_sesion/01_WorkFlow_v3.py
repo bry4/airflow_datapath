@@ -17,7 +17,7 @@ default_args = {
 }
 
 @dag(
-    dag_id='03_workflow_v3',
+    dag_id='04_workflow_v3',
     default_args=default_args,
     description='A DAG that get data from a public API and send to Database',
     schedule_interval=None,
