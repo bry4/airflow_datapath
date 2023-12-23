@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: datapath_pg
+      POSTGRES_USER: dp_user_pg
+      POSTGRES_PASSWORD: dp_password_pg
+    ports:
+      - "5433:5432" #Para diferenciar del puerto de postgres en airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: datapath_ms
+      MYSQL_USER: dp_user_ms
+      MYSQL_PASSWORD: dp_password_ms
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  postgres_data:
+  mysql_data:
